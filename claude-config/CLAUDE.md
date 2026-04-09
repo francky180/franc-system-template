@@ -16,6 +16,49 @@
 
 7. **Windows environment.** Always use paths that work on Windows. Never use Linux-only paths.
 
+## Environment Setup Notes (For Rebuild)
+
+When installing on a new machine, these steps are CRITICAL:
+
+### Node.js Install (Windows)
+- During install, **pick the install path** (default: `C:\Program Files\nodejs\`)
+- CHECK the box **"Add to PATH"** — if you miss this, nothing works from terminal
+- After install, CLOSE and REOPEN your terminal before testing `node --version`
+
+### Git Install (Windows)
+- During install, select **"Git from the command line and also from 3rd-party software"**
+- This adds Git to your system PATH so it works everywhere
+
+### Claude Code
+- Installed at: `~/.local/bin/claude`
+- Run `claude` once after install to authenticate — browser opens, sign in
+
+### Bun (Required by gstack)
+- Installed at: `~/.bun/bin/bun`
+- The install script handles this automatically
+
+### Key Paths on This System
+- Node.js: `C:\Program Files\nodejs\`
+- Git: `C:\Program Files\Git\`
+- Claude: `C:\Users\franc\.local\bin\claude`
+- Bun: `C:\Users\franc\.bun\bin\bun`
+- Skills: `C:\Users\franc\.claude\skills\`
+- BRAIN: `C:\Users\franc\BRAIN\`
+- Projects: `C:\Users\franc\Projects\websites\`
+- AI Tools: `C:\Users\franc\ai-tools\`
+- NPM Global: `C:\Users\franc\AppData\Roaming\npm\`
+
+### Environment Variables to Set (If PATH Issues)
+If tools aren't found after install, add these to your system PATH:
+```
+C:\Program Files\nodejs\
+C:\Program Files\Git\cmd\
+%USERPROFILE%\.local\bin\
+%USERPROFILE%\.bun\bin\
+%USERPROFILE%\AppData\Roaming\npm\
+```
+Windows: Settings → System → About → Advanced System Settings → Environment Variables → Edit PATH
+
 8. **Self-prompt before every task.** Before executing ANY task, create a master prompt for yourself: what needs to be done, in what order, what to watch for, what the end result looks like. Then follow your own plan. Think first, execute second.
 
 9. **Update BRAIN and memory after every session.** When something new is built, deployed, learned, or decided — update the Obsidian BRAIN vault and memory automatically. Don't wait to be asked.
