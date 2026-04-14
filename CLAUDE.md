@@ -1,3 +1,47 @@
+# 🚀 START HERE — Client Setup Rules
+
+Paste your OS command below into a terminal. It installs everything in one go.
+
+## Rule 1 — Install Claude Code + this system (one command, any device)
+
+### 🪟 Windows (PowerShell — run as Administrator)
+```powershell
+winget install OpenJS.NodeJS.LTS -e --accept-source-agreements --accept-package-agreements; winget install Git.Git -e --accept-source-agreements --accept-package-agreements; npm install -g @anthropic-ai/claude-code; git clone https://github.com/francky180/franc-system-template.git "$HOME\ai-software-factory"; cd "$HOME\ai-software-factory"; bash ai-tools/install-all.sh; claude
+```
+
+### 🍎 Mac (Terminal)
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && brew install node git && npm install -g @anthropic-ai/claude-code && git clone https://github.com/francky180/franc-system-template.git ~/ai-software-factory && cd ~/ai-software-factory && bash ai-tools/install-all.sh && claude
+```
+
+### 🐧 Linux (Debian / Ubuntu)
+```bash
+sudo apt update && sudo apt install -y curl git && curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - && sudo apt install -y nodejs && sudo npm install -g @anthropic-ai/claude-code && git clone https://github.com/francky180/franc-system-template.git ~/ai-software-factory && cd ~/ai-software-factory && bash ai-tools/install-all.sh && claude
+```
+
+### 📱 Termux (Android)
+```bash
+pkg upgrade -y && pkg install nodejs-lts git -y && npm install -g @anthropic-ai/claude-code && git clone https://github.com/francky180/franc-system-template.git ~/ai-software-factory && cd ~/ai-software-factory && bash ai-tools/install-all.sh && claude
+```
+
+## Rule 2 — Log in to Claude Max
+When `claude` launches, it opens your browser. Log in with your **Claude Max** account ([claude.ai/pricing](https://claude.ai/pricing)). First-time only.
+
+## Rule 3 — Verify 115 skills loaded
+In Claude Code, type:
+```
+/help
+```
+You should see `/office-hours`, `/ship`, `/autoplan`, and 112 more. If yes — you're ready.
+
+## Rule 4 — Start every task with `/office-hours`
+Before building anything, run `/office-hours`. Six forcing questions that save weeks of wrong direction.
+
+## Rule 5 — Ship with `/ship`
+Tests + PR + deploy in one command. Don't push manually.
+
+---
+
 <!-- gitnexus:start -->
 # GitNexus — Code Intelligence
 
