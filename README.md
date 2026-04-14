@@ -32,28 +32,83 @@ Every task follows: **Think > Plan > Build > Review > Test > Ship > Reflect**
 
 ## Quick Start (5 minutes)
 
-### Prerequisites
+**Zero to Claude Code in one command.** Pick your OS and paste the block into your terminal — it installs Node.js, Claude Code, logs you in, and runs the install script.
 
-- Git — https://git-scm.com/
-- Node.js 18+ — https://nodejs.org/
-- Claude Code with Claude Max subscription
+All you need afterwards is a **Claude Max** subscription.
 
-### Install
+### 🪟 Windows (PowerShell — run as Administrator)
+
+```powershell
+winget install OpenJS.NodeJS.LTS -e --accept-source-agreements --accept-package-agreements; `
+winget install Git.Git -e --accept-source-agreements --accept-package-agreements; `
+refreshenv; `
+npm install -g @anthropic-ai/claude-code; `
+git clone https://github.com/francky180/franc-system-template.git "$HOME\ai-software-factory"; `
+cd "$HOME\ai-software-factory"; `
+bash ai-tools/install-all.sh; `
+claude
+```
+
+### 🍎 Mac (Terminal)
 
 ```bash
-cd ~
-git clone https://github.com/francky180/franc-system-template.git ai-software-factory
-cd ai-software-factory
-bash ai-tools/install-all.sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && \
+brew install node git && \
+npm install -g @anthropic-ai/claude-code && \
+git clone https://github.com/francky180/franc-system-template.git ~/ai-software-factory && \
+cd ~/ai-software-factory && \
+bash ai-tools/install-all.sh && \
+claude
 ```
+
+### 🐧 Linux (Debian / Ubuntu)
+
+```bash
+sudo apt update && sudo apt install -y curl git && \
+curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - && \
+sudo apt install -y nodejs && \
+sudo npm install -g @anthropic-ai/claude-code && \
+git clone https://github.com/francky180/franc-system-template.git ~/ai-software-factory && \
+cd ~/ai-software-factory && \
+bash ai-tools/install-all.sh && \
+claude
+```
+
+### 📱 Termux (Android)
+
+```bash
+pkg upgrade -y && pkg install nodejs-lts git -y && \
+npm install -g @anthropic-ai/claude-code && \
+git clone https://github.com/francky180/franc-system-template.git ~/ai-software-factory && \
+cd ~/ai-software-factory && \
+bash ai-tools/install-all.sh && \
+claude
+```
+
+### What happens
+
+1. Installs Node.js LTS + Git (if missing)
+2. Installs Claude Code globally via npm
+3. Clones this template to `~/ai-software-factory`
+4. Runs `install-all.sh` — copies all 115 skills into `~/.claude/skills/`
+5. Launches `claude` — opens browser for Claude Max login (first-time only)
 
 ### Verify
 
-```bash
-ls ~/.claude/skills/
+Once Claude Code is running, type:
+
+```
+/help
 ```
 
-You should see all 115 skill directories.
+You should see all 115 skills listed. If `/office-hours`, `/ship`, or `/autoplan` show up, you're done.
+
+### Prerequisites (what the scripts install for you)
+
+- **Git** — installed automatically
+- **Node.js 18+** — installed automatically
+- **Claude Code** — installed automatically
+- **Claude Max subscription** — you need this separately ([claude.ai/pricing](https://claude.ai/pricing))
 
 ## All 115 Skills
 
