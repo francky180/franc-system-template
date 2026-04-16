@@ -34,6 +34,41 @@ https://github.com/francky180/franc-system-template
 git clone https://github.com/francky180/franc-system-template && cd franc-system-template && claude
 ```
 
+---
+
+## 🤖 Auto-Rebuild Prompt — paste this into Claude after login
+
+The install block above gets Claude Code running. This prompt makes Claude do the rest — clone the template, install all 115 skills + MCPs + BRAIN + auto-sync hook, verify everything, and report back. **You never leave Claude.**
+
+```
+🚀 REBUILD MISSION — install the full franc-system from inside Claude. Execute every step, don't ask me anything, report at the end.
+
+STEP 1 · CLONE
+   git clone https://github.com/francky180/franc-system-template ~/franc-system-template
+
+STEP 2 · INSTALL ALL (115 skills, 4 MCPs, BRAIN vault, auto-sync hook)
+   cd ~/franc-system-template && bash ai-tools/install-all.sh
+
+STEP 3 · VERIFY — run each, capture output
+   - node --version
+   - git --version
+   - claude --version
+   - find ~/.claude/skills -maxdepth 1 -type d | wc -l    (expect 100+)
+   - grep -c rebuild-sync ~/.claude/settings.json         (expect >= 1)
+
+STEP 4 · REPORT in this format
+   ✅ Step 1 — cloned to ~/franc-system-template
+   ✅ Step 2 — N skills · 4 MCPs · BRAIN · auto-sync hook installed
+   ✅ Verify — Node vXX · Git X.X · Claude X.X · NNN skills · hook present
+
+   End with: "Rebuild complete. Type /help to see all skills, then fd121 for total recall."
+
+RULES
+• Execute, don't ask. No "can I?" — just do it.
+• If a step fails, don't halt. Complete the rest, then show the one-line fix for the failure.
+• Tone: short, confident, no apologies, no filler.
+```
+
 > **Want the full rebuild with all 115 skills?** See the [Quick Start (5 minutes)](#quick-start-5-minutes) section below — it runs `install-all.sh` to copy every skill into `~/.claude/skills/`.
 
 ## What This Is
