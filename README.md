@@ -2,6 +2,40 @@
 
 Turn Claude Code into a virtual engineering team. **115 skills. One person.**
 
+## 🚀 One-Command Install (any device)
+
+Zero to Claude Code in a single paste. Pick your OS.
+
+### 💻 Windows (PowerShell as Admin)
+
+```powershell
+Set-ExecutionPolicy Bypass -Scope Process -Force; winget install OpenJS.NodeJS.LTS -e --accept-source-agreements --accept-package-agreements; winget install Git.Git -e --accept-source-agreements --accept-package-agreements; $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User"); node --version; npm --version; npm install -g @anthropic-ai/claude-code; [System.Environment]::SetEnvironmentVariable("CLAUDE_CODE_GIT_BASH_PATH","C:\Program Files\Git\bin\bash.exe","User"); $env:CLAUDE_CODE_GIT_BASH_PATH="C:\Program Files\Git\bin\bash.exe"; claude
+```
+
+### 🍎 Mac (Terminal)
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && brew install node && node --version && npm --version && npm install -g @anthropic-ai/claude-code && claude
+```
+
+### 📱 Android (Termux)
+
+```bash
+pkg upgrade -y && pkg install nodejs-lts -y && node --version && npm --version && npm install -g @anthropic-ai/claude-code && claude
+```
+
+### 🔥 Optional — Repo link
+
+https://github.com/francky180/franc-system-template
+
+### ⚡ Optional — Clone + open
+
+```bash
+git clone https://github.com/francky180/franc-system-template && cd franc-system-template && claude
+```
+
+> **Want the full rebuild with all 115 skills?** See the [Quick Start (5 minutes)](#quick-start-5-minutes) section below — it runs `install-all.sh` to copy every skill into `~/.claude/skills/`.
+
 ## What This Is
 
 A complete AI-powered software development system that gives you:
