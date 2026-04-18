@@ -59,9 +59,23 @@ else
 fi
 export PATH="$HOME/.bun/bin:$PATH"
 
+# ----- Step 3b: Install bundled phimindflow skills -----
+echo ""
+echo "[3b/8] Installing bundled phimindflow skills (100+ skills from this repo)..."
+BUNDLED_SKILLS_DIR="$BACKUP_DIR/.claude/skills"
+TARGET_SKILLS_DIR="$HOME/.claude/skills"
+mkdir -p "$TARGET_SKILLS_DIR"
+if [ -d "$BUNDLED_SKILLS_DIR" ]; then
+  cp -rn "$BUNDLED_SKILLS_DIR"/* "$TARGET_SKILLS_DIR/" 2>/dev/null || true
+  BUNDLED_COUNT=$(ls -1 "$BUNDLED_SKILLS_DIR" | wc -l)
+  echo "  Copied $BUNDLED_COUNT bundled skills into $TARGET_SKILLS_DIR"
+else
+  echo "  (no bundled skills directory found — skipping)"
+fi
+
 # ----- Step 4: Install gstack -----
 echo ""
-echo "[4/7] Installing gstack (35+ specialist skills)..."
+echo "[4/8] Installing gstack (35+ specialist skills)..."
 if [ -d "$HOME/.claude/skills/gstack" ]; then
   echo "  Already installed. Updating..."
   cd "$HOME/.claude/skills/gstack" && git pull && ./setup
@@ -73,7 +87,7 @@ echo "  gstack installed."
 
 # ----- Step 5: Install Superpowers -----
 echo ""
-echo "[5/7] Installing Superpowers (14 process skills)..."
+echo "[5/8] Installing Superpowers (14 process skills)..."
 if [ -d "$HOME/.claude/skills/superpowers" ]; then
   echo "  Already installed. Updating..."
   cd "$HOME/.claude/skills/superpowers" && git pull
@@ -84,7 +98,7 @@ echo "  Superpowers installed."
 
 # ----- Step 6: Set up BRAIN vault -----
 echo ""
-echo "[6/7] Setting up BRAIN Obsidian vault..."
+echo "[6/8] Setting up BRAIN Obsidian vault..."
 BRAIN_DIR="$HOME/BRAIN"
 if [ -d "$BRAIN_DIR" ]; then
   echo "  BRAIN already exists. Merging new files only..."
@@ -96,7 +110,7 @@ echo "  BRAIN ready at $BRAIN_DIR"
 
 # ----- Step 7: Set up Claude config -----
 echo ""
-echo "[7/7] Setting up Claude Code config..."
+echo "[7/8] Setting up Claude Code config..."
 CLAUDE_DIR="$HOME/.claude"
 mkdir -p "$CLAUDE_DIR"
 
@@ -124,9 +138,12 @@ echo ""
 echo "  Installed:"
 echo "    - Claude Code"
 echo "    - Bun $(bun --version 2>/dev/null || echo '')"
+echo "    - 100+ bundled phimindflow skills"
 echo "    - gstack (35+ specialist skills)"
 echo "    - Superpowers (14 process skills)"
 echo "    - BRAIN Obsidian vault at ~/BRAIN"
+TOTAL=$(ls -1 "$HOME/.claude/skills" 2>/dev/null | wc -l)
+echo "    - Total skills in ~/.claude/skills: $TOTAL"
 echo "    - CLAUDE.md with routing rules"
 echo ""
 echo "  Next steps:"
