@@ -71,19 +71,32 @@ RULES
 
 > **Want the full rebuild with all 115 skills?** See the [Quick Start (5 minutes)](#quick-start-5-minutes) section below — it runs `install-all.sh` to copy every skill into `~/.claude/skills/`.
 
-## What This Is
+## What You Get When You Clone This Repo
 
-A complete AI-powered software development system that gives you:
+**Bundled in this repo (114 skills — copied to `~/.claude/skills/` on install):**
 
-- **gstack** (40+ skills) — Virtual team: CEO, eng manager, designer, QA lead, security officer, release engineer, and 17 more specialists as slash commands
-- **Creator Marketing Suite** (31 skills) — Audience analysis, campaign briefs, ROI calculators, outreach sequences, compliance checkers, rate estimators
-- **Marketing Suite** (15 skills) — Audits, SEO, funnels, landing page CRO, email sequences, ad copy, competitor intel
-- **Design System** (12 skills) — Brand identity, banner design, canvas art, UI styling, frontend components, design tokens, HTML presentations
-- **GitNexus** (7 skills) — Code intelligence: impact analysis, debugging, refactoring, PR review powered by knowledge graph
-- **Best Practices** (4 skills) — Next.js, React/Vercel, Playwright, Remotion guides baked in
-- **Utilities** (6 skills) — PDF tools, MCP builder, doc co-authoring, skill creator, multi-platform reach
-- **BRAIN** — Obsidian vault that documents the entire system with linked navigation
-- **One-click install** — Script that installs everything on a fresh machine in 5 minutes
+| Category | Count | Examples |
+|---|---|---|
+| **Build · Deploy · Ops** | 41 | `/ship` `/land-and-deploy` `/canary` `/investigate` `/qa` `/review` `/retro` `/health` `/cso` `/autoplan` `/plan-ceo-review` `/plan-eng-review` |
+| **Creator Marketing** | 31 | `/creator-outreach-sequence-generator` `/campaign-roi-calculator` `/niche-fit-scorer` `/creator-rate-estimator` `/brand-safety-screen` |
+| **Marketing Suite** | 15 | `/market-ads` `/market-funnel` `/market-launch` `/market-seo` `/market-social` `/market-copy` `/market-landing` |
+| **Design System** | 15 | `/design-consultation` `/design-shotgun` `/banner-design` `/frontend-design` `/ui-styling` `/ui-ux-pro-max` `/slides` |
+| **GitNexus (code graph)** | 8 | `/gitnexus-impact-analysis` `/gitnexus-debugging` `/gitnexus-refactoring` `/gitnexus-pr-review` |
+| **Best Practices** | 4 | `/next-best-practices` `/vercel-react-best-practices` `/remotion-best-practices` `/playwright-best-practices` |
+
+**Plus installed automatically by `install-all.sh`:**
+
+- **gstack** (~35+ specialist skills) — virtual team clone: CEO mode, eng manager, design lead, release engineer
+- **Superpowers** (~14 process skills) — Obra's process toolkit for disciplined AI workflows
+- **BRAIN vault** at `~/BRAIN` — Obsidian-navigable knowledge graph with the 100-book principle library
+- **CLAUDE.md** global identity file with the 15 Always-On Principles + routing rules
+- **settings.json** with the `rebuild-sync` PostToolUse hook (auto-snapshots every edit to a mirror repo)
+- **Claude Code CLI** (if not already installed)
+- **Bun runtime** (if not already installed)
+
+**Post-install skill total in `~/.claude/skills/`: 115+ folders** (114 bundled + gstack + superpowers, plus any you add later).
+
+Run `/help` inside Claude Code to list every installed skill. Run `fd121` for master recall.
 
 ## The Sprint Lifecycle
 
