@@ -40,12 +40,138 @@ Before building anything, run `/office-hours`. Six forcing questions that save w
 ## Rule 5 — Ship with `/ship`
 Tests + PR + deploy in one command. Don't push manually.
 
+## Rule 6 — Deep Readiness Pass (the Architect Bootstrap)
+
+After the initial rebuild finishes and you've typed `fd121`, paste this **second prompt** into Claude. It audits the cloned repo, installs any missing dependencies, detects the framework, and starts the project — all without leaving Claude.
+
+```
+Act as a senior AI systems architect, senior full-stack engineer, senior repo setup operator, and careful QA/deployment assistant.
+
+MISSION:
+Perform a full automatic bootstrap and readiness pass for the public repo only inside the CURRENT Claude Code session, without making me leave Claude.
+
+IMPORTANT CONTEXT:
+- I am already inside Claude Code
+- Do NOT tell me to go back to PowerShell, Terminal, or Command Prompt unless absolutely necessary
+- Do NOT reinstall global tools that are already installed
+- Do NOT break any working setup
+- Be non-destructive, organized, and precise
+- If something already exists, verify it instead of recreating it
+
+PUBLIC REPO ONLY:
+https://github.com/francky180/franc-system-template
+
+CORE GOAL:
+Automatically prepare the environment so the repo is cloned if needed, opened, inspected, dependencies installed if needed, and ready to run from inside this Claude session.
+
+EXECUTION RULES:
+- Do not ask unnecessary questions
+- Do not create duplicate folders
+- Do not overwrite working files unless required
+- Prefer checking first, then acting
+- If a step cannot be completed automatically, explain exactly what blocked it and give the single next command needed
+- Show progress clearly by phase
+- Keep all actions safe and reversible
+
+PHASE 1 — ENVIRONMENT CHECK
+1. Identify the current working directory
+2. Confirm basic tools available in this environment:
+   - git
+   - node
+   - npm
+3. Report versions if available
+4. Do NOT reinstall them if already present
+
+PHASE 2 — REPO ACQUISITION
+1. Check whether folder "franc-system-template" already exists in the current workspace
+2. If missing, clone:
+   git clone https://github.com/francky180/franc-system-template
+3. If it already exists, do not duplicate it
+4. Report the final folder path
+
+PHASE 3 — PROJECT ENTRY
+1. Change into:
+   franc-system-template
+2. Confirm the active working directory
+3. Briefly inspect the repo structure and report key files/folders found
+
+PHASE 4 — SAFE PROJECT AUDIT
+Inside the repo:
+1. Check for important project files such as:
+   - package.json
+   - package-lock.json
+   - pnpm-lock.yaml
+   - yarn.lock
+   - README
+   - .env.example
+   - next.config.*
+   - tsconfig.json
+   - vercel.json
+2. Detect the likely stack/framework
+3. Summarize what kind of project it is
+4. Do not invent files that are not there
+
+PHASE 5 — DEPENDENCY SETUP
+1. If package.json exists, inspect scripts
+2. Install dependencies using the appropriate package manager
+3. If install fails, diagnose clearly and propose the safest fix
+4. Do not run unnecessary installs outside this repo
+
+PHASE 6 — RUN READINESS
+1. Determine the correct local start command from the package scripts
+2. Determine whether the project should use:
+   - npm run dev
+   - npm start
+   - another documented script
+3. If safe and appropriate, start the project
+4. If starting automatically is not appropriate, report the exact next command
+5. If environment variables are required, identify that clearly without fabricating values
+
+PHASE 7 — FINAL DELIVERY
+Provide a clean final report with these sections:
+
+1. CURRENT STATUS
+- current working directory
+- whether franc-system-template is present
+- whether it is the active repo
+
+2. WHAT WAS DONE
+- cloned repo or verified existing repo
+- dependency installs performed
+- detected framework/stack
+- whether the project was started successfully
+
+3. WHAT IS READY
+- what can be worked on immediately
+- what command is next if anything still needs to be run
+
+4. BLOCKERS
+- anything that prevented completion
+- exact reason
+- exact next command only if necessary
+
+5. RECOMMENDED NEXT ACTION
+- the single best next step inside this Claude session
+
+SPECIAL INSTRUCTIONS:
+- Be proactive
+- Execute commands when appropriate instead of only describing them
+- Stay inside Claude workflow
+- Minimize user effort
+- Do not output vague advice
+- Do not restart from scratch
+- Do not touch unrelated folders
+- Do not make assumptions beyond what you can verify
+```
+
+**When to run this:** Any time after the initial rebuild. It's idempotent — safe to re-run. Use it whenever you move the repo to a new machine, suspect something's out of sync, or want a readiness audit before starting work.
+
 ---
 
 <!-- gitnexus:start -->
 # GitNexus — Code Intelligence
 
-This project is indexed by GitNexus as **franc-system-template** (219 symbols, 215 relationships, 0 execution flows). Use the GitNexus MCP tools to understand code, assess impact, and navigate safely.
+This project is indexed by GitNexus as **franc-system-template** (271 symbols, 263 relationships, 0 execution flows). Use the GitNexus MCP tools to understand code, assess impact, and navigate safely.
 
 > If any GitNexus tool warns the index is stale, run `npx gitnexus analyze` in terminal first.
 
