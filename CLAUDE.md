@@ -42,7 +42,7 @@ Tests + PR + deploy in one command. Don't push manually.
 
 ## Rule 6 — Deep Readiness Pass (the Architect Bootstrap)
 
-After the initial rebuild finishes and you've typed `fd121`, paste this **second prompt** into Claude. It audits the cloned repo, installs any missing dependencies, detects the framework, and starts the project — all without leaving Claude.
+After the initial rebuild finishes, paste this **second prompt** into Claude. It audits the cloned repo, installs any missing dependencies, detects the framework, and starts the project — all without leaving Claude.
 
 ```
 Act as a senior AI systems architect, senior full-stack engineer, senior repo setup operator, and careful QA/deployment assistant.

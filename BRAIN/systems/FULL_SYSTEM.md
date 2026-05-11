@@ -2,6 +2,8 @@
 
 Central node of the entire AI operating system.
 
+> **Customize the Business Flow and Projects sections** with your own funnel stages and project list.
+
 **Connected**: [[systems/FULL_BUSINESS_FLOW]] | [[core/CONTROL_PANEL]] | [[systems/architecture]]
 
 ---
@@ -23,18 +25,17 @@ Central node of the entire AI operating system.
 ║  Remotion · Playwright                                      ║
 ║  NextJS_React · Claude_Desktop · CLAUDE_MD                  ║
 ╠══════════════════════════════════════════════════════════════╣
-║                  BUSINESS FLOW (Revenue)                    ║
-║  TRAFFIC → INSTAGRAM → MANYCHAT → VERCEL                   ║
-║    → CLAUDE_AI → GHL → STRIPE → AUTOMATION_LOOP            ║
+║                  BUSINESS FLOW (Revenue) — example          ║
+║  TRAFFIC → SOCIAL → DM_AUTOMATION → WEB                     ║
+║    → AI_BACKEND → CRM → CHECKOUT → AUTOMATION_LOOP          ║
 ║  Supporting: FUNNEL · OFFER                                 ║
 ╠══════════════════════════════════════════════════════════════╣
 ║                   AUTOMATIONS (Execution)                   ║
-║  manychat-flow · vercel-api-plan · webhook-map              ║
+║  dm-flow · api-plan · webhook-map                           ║
 ╠══════════════════════════════════════════════════════════════╣
-║                    PROJECTS (Deliverables)                  ║
-║  phimindflow-site (LIVE) · ai-agency-system (Active)        ║
-║  credit-system (In progress)                                ║
-║  system-audit-docs · system-rebuild-docs                    ║
+║                    PROJECTS (template)                      ║
+║  your-project-1 · your-project-2 · your-project-3           ║
+║  (Replace these in BRAIN/projects/)                         ║
 ╚══════════════════════════════════════════════════════════════╝
 ```
 
@@ -46,12 +47,10 @@ Central node of the entire AI operating system.
 |-------|-------|------|
 | Core | 4 | Intelligence, prompts, operations, sprint workflow |
 | Tools | 12 | Development and creation capabilities |
-| Business Flow | 10 | Revenue pipeline stages |
+| Business Flow | 8 | Revenue pipeline stages (customize) |
 | Automations | 3 | Execution specs |
-| Projects | 5 | Real deliverables |
+| Projects | — | Your real deliverables (add in BRAIN/projects/) |
 | Architecture | 4 | System documentation + AI Software Factory |
-
-**Total graph nodes**: 41
 
 ---
 
@@ -69,18 +68,22 @@ AI_SOFTWARE_FACTORY = Superpowers + gstack unified sprint workflow
 
 ---
 
-## Business Flow (Linear)
+## Business Flow (Linear — example)
 
 ```
-TRAFFIC → INSTAGRAM → MANYCHAT → VERCEL → CLAUDE_AI → GHL → STRIPE → AUTOMATION_LOOP → TRAFFIC
+TRAFFIC → SOCIAL → DM_AUTOMATION → WEB → AI_BACKEND → CRM → CHECKOUT → AUTOMATION_LOOP → TRAFFIC
 ```
+
+Replace each stage with the specific tool you use (e.g. INSTAGRAM, MANYCHAT, VERCEL, GHL, STRIPE).
 
 ---
 
-## Project / Tool Matrix
+## Project / Tool Matrix (template)
 
-| Project | Claude Code | NextJS | UI/UX | Remotion | Marketing | Vercel |
-|---------|:-----------:|:------:|:-----:|:--------:|:---------:|:------:|
-| phimindflow-site | x | x | x | x | x | LIVE |
-| ai-agency-system | x | x | x | — | x | Planned |
-| credit-system | x | x | x | x | — | Planned |
+| Project | Claude Code | NextJS | UI/UX | Remotion | Marketing | Hosting |
+|---------|:-----------:|:------:|:-----:|:--------:|:---------:|:-------:|
+| your-project-1 | x | x | x | x | x | — |
+| your-project-2 | x | x | x | — | x | — |
+| your-project-3 | x | x | x | x | — | — |
+
+Update this matrix with your real projects and which tools each uses.

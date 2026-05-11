@@ -88,7 +88,7 @@ These principles are embedded from 8 foundational books. They shape how you thin
 - Sell the outcome, not the service — not "credit repair" but "get approved for your dream home."
 - Stack value until the price feels like a steal — bundle solutions, add bonuses, guarantee results.
 - Higher prices = better clients. Don't compete on cheap. Compete on value.
-- Name your offer — "CreditPath Pro" not "credit repair service."
+- Name your offer — "YourBrand Pro" not generic service language.
 
 ### Execution & Discipline (Daily Stoic + Mastery)
 - Focus on what you can control — your work, your quality, your response. Not outcomes.

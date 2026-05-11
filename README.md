@@ -61,7 +61,7 @@ STEP 4 · REPORT in this format
    ✅ Step 2 — N skills · 4 MCPs · BRAIN · auto-sync hook installed
    ✅ Verify — Node vXX · Git X.X · Claude X.X · NNN skills · hook present
 
-   End with: "Rebuild complete. Type /help to see all skills, then fd121 for total recall."
+   End with: "Rebuild complete. Type /help to see all skills."
 
 RULES
 • Execute, don't ask. No "can I?" — just do it.
@@ -96,7 +96,7 @@ RULES
 
 **Post-install skill total in `~/.claude/skills/`: 115+ folders** (114 bundled + gstack + superpowers, plus any you add later).
 
-Run `/help` inside Claude Code to list every installed skill. Run `fd121` for master recall.
+Run `/help` inside Claude Code to list every installed skill.
 
 ## The Sprint Lifecycle
 

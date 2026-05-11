@@ -2,6 +2,8 @@
 
 Central navigation hub. Start here.
 
+> **Customize this index for your business.** Replace the placeholder project rows below with your own projects. See `BRAIN/core/MASTER_PROMPT.md` for setup instructions.
+
 ---
 
 ## System Map
@@ -38,29 +40,25 @@ Central navigation hub. Start here.
 - [[systems/AI_SOFTWARE_FACTORY]] — Superpowers + gstack unified sprint workflow
 - [[core/SPRINT_WORKFLOW]] — Master prompt for the AI Software Factory
 
-## Business Flow (8 stages)
+## Business Flow (8 stages, example)
 
-TRAFFIC → INSTAGRAM → MANYCHAT → VERCEL → CLAUDE_AI → GHL → STRIPE → AUTOMATION_LOOP
+TRAFFIC → SOCIAL → DM_AUTOMATION → WEB → AI_BACKEND → CRM → CHECKOUT → AUTOMATION_LOOP
 
-Supporting: FUNNEL | OFFER
-
-Full path: [[systems/FULL_BUSINESS_FLOW]]
+> Replace the stage names above with your own funnel. See [[systems/architecture]] for the layered view.
 
 ## Automations
 
-- manychat-flow — DM flow architecture
-- vercel-api-plan — API route specs
+- dm-flow — DM flow architecture
+- api-plan — API route specs
 - webhook-map — Service wiring
 
-## Projects (5)
+## Projects (template — add your own)
 
 | Project | Status |
 |---------|--------|
-| phimindflow-site | LIVE on Vercel |
-| ai-agency-system | Active on GitHub |
-| credit-system | In progress |
-| system-audit-docs | Reference docs |
-| system-rebuild-docs | Recovery docs |
+| your-project-1 | Replace with your project |
+| your-project-2 | Replace with your project |
+| your-project-3 | Replace with your project |
 
 ---
 

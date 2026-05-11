@@ -1,12 +1,14 @@
 # System Architecture
 
-Full connected architecture of Franc's AI business ecosystem.
+Full connected architecture of your AI business ecosystem.
+
+> **Template — customize for your stack.** Replace project rows and tool names with your actual setup.
 
 **Connected**: [[systems/FULL_SYSTEM]]
 
 ---
 
-## Layered Architecture
+## Layered Architecture (example)
 
 ```
 ╔═══════════════════════════════════════════════════════════════╗
@@ -21,40 +23,40 @@ Full connected architecture of Franc's AI business ecosystem.
 ║  LAYER 2 — AUTOMATION & CAPTURE                               ║
 ║                                                               ║
 ║              ┌─────────────┐                                  ║
-║              │  MANYCHAT   │  DM qualifier + router            ║
+║              │ DM_AUTO     │  DM qualifier + router            ║
 ║              └──────┬──────┘                                  ║
 ║                     │  webhook POST                           ║
 ║              ┌──────▼──────┐                                  ║
-║              │   VERCEL    │  API routes per project           ║
+║              │   WEB API   │  API routes per project           ║
 ║              └──────┬──────┘                                  ║
 ╠═══════════════════════════════════════════════════════════════╣
 ║  LAYER 3 — MONETIZATION                                       ║
 ║                                                               ║
 ║    ┌─────────────┐  ┌─────────────┐  ┌─────────────┐         ║
-║    │   FREE      │  │   $250      │  │   $1,500    │         ║
-║    │  Broker /   │  │  Course /   │  │ Management/ │         ║
-║    │  Affiliate  │  │  Core pkg   │  │  DFY pkg    │         ║
+║    │   FREE      │  │   $TIER 1   │  │   $TIER 2   │         ║
+║    │  Lead /     │  │  Core /     │  │  Premium /  │         ║
+║    │  Affiliate  │  │  Standard   │  │  DFY pkg    │         ║
 ║    └─────────────┘  └─────────────┘  └─────────────┘         ║
 ║                            │                                  ║
 ║                     ┌──────▼──────┐                           ║
-║                     │   STRIPE    │  Checkout + webhooks       ║
+║                     │  CHECKOUT   │  Stripe / Paddle / etc.    ║
 ║                     └─────────────┘                           ║
 ╠═══════════════════════════════════════════════════════════════╣
 ║  LAYER 4 — INTELLIGENCE                                       ║
 ║                                                               ║
 ║  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐     ║
-║  │ CLAUDE   │  │   GHL    │  │   N8N    │  │ REMOTION │     ║
-║  │Code/Desk │  │  (CRM)   │  │ (future) │  │ (video)  │     ║
+║  │ CLAUDE   │  │   CRM    │  │   N8N    │  │ REMOTION │     ║
+║  │Code/Desk │  │  (GHL)   │  │ (future) │  │ (video)  │     ║
 ║  └──────────┘  └──────────┘  └──────────┘  └──────────┘     ║
 ╠═══════════════════════════════════════════════════════════════╣
 ║  LAYER 5 — BRAIN (THIS SYSTEM)                                ║
 ║                                                               ║
-║  C:\Users\franc\BRAIN\                                        ║
+║  ~/BRAIN/                                                     ║
 ║  ├── core/           Intelligence & prompts                   ║
 ║  ├── navigation/     Entry points & status                    ║
-║  ├── systems/live/   Business flow nodes                      ║
+║  ├── systems/        Architecture documentation               ║
 ║  ├── tools/          Tool chain nodes                         ║
-║  ├── projects/       Project nodes                            ║
+║  ├── projects/       Project nodes (add your own)             ║
 ║  ├── automations/    Execution specs                          ║
 ║  └── claude-export/  Raw source data                          ║
 ╚═══════════════════════════════════════════════════════════════╝
@@ -62,31 +64,33 @@ Full connected architecture of Franc's AI business ecosystem.
 
 ---
 
-## Per-Project Architecture
+## Per-Project Architecture (template)
 
-### phimindflow-site (Forex)
-
-```
-Instagram → ManyChat DM → Vercel API (:3001) → Stripe / Genesis FX
-```
-
-**Theme**: dark + gold | **Status**: LIVE on Vercel
-
-### ai-agency-system (ClientFlow)
+### your-project-1
 
 ```
-Instagram → ManyChat DM → Vercel API (:3003) → Stripe checkout
+Social → DM Auto → Web API → Checkout / Affiliate
 ```
 
-**Theme**: dark + gold | **Status**: Active on GitHub
+**Theme**: your-theme | **Status**: your-status
 
-### credit-system (CreditPath)
+### your-project-2
 
 ```
-Instagram → ManyChat DM → Vercel API (:3002) → Affiliate links
+Social → DM Auto → Web API → Checkout
 ```
 
-**Theme**: light + blue | **Status**: In progress (0 commits)
+**Theme**: your-theme | **Status**: your-status
+
+### your-project-3
+
+```
+Social → DM Auto → Web API → Affiliate links
+```
+
+**Theme**: your-theme | **Status**: your-status
+
+> Create one section per project. Use the format above as the starting point.
 
 ---
 
@@ -104,6 +108,6 @@ Instagram → ManyChat DM → Vercel API (:3002) → Affiliate links
 | AI (dev) | Claude Code | Opus 4.6 |
 | AI (chat) | OpenAI | gpt-4o-mini |
 | Payments | Stripe | Checkout + Webhooks |
-| DM Auto | ManyChat | Webhook integration |
-| CRM | GHL | Stub only |
+| DM Auto | ManyChat / Zernio | Webhook integration |
+| CRM | GHL | API integration |
 | Orchestration | N8N | Planned |

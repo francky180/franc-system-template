@@ -59,9 +59,9 @@ else
 fi
 export PATH="$HOME/.bun/bin:$PATH"
 
-# ----- Step 4: Install bundled phimindflow skills -----
+# ----- Step 4: Install bundled AI Software Factory skills -----
 echo ""
-echo "[4/8] Installing bundled phimindflow skills..."
+echo "[4/8] Installing bundled AI Software Factory skills..."
 BUNDLED_SKILLS_DIR="$BACKUP_DIR/.claude/skills"
 TARGET_SKILLS_DIR="$HOME/.claude/skills"
 mkdir -p "$TARGET_SKILLS_DIR"
@@ -140,7 +140,7 @@ TOTAL=$(find "$HOME/.claude/skills" -maxdepth 1 -mindepth 1 -type d 2>/dev/null 
 echo "  You now have:"
 echo "    - Claude Code CLI"
 echo "    - Bun $(bun --version 2>/dev/null || echo 'installed')"
-echo "    - ${BUNDLED_COUNT:-114} bundled phimindflow skills (copied into ~/.claude/skills/)"
+echo "    - ${BUNDLED_COUNT:-114} bundled AI Software Factory skills (copied into ~/.claude/skills/)"
 echo "    - gstack (35+ specialist skills) at ~/.claude/skills/gstack/"
 echo "    - Superpowers (14 process skills) at ~/.claude/skills/superpowers/"
 echo "    - BRAIN Obsidian vault at ~/BRAIN"
@@ -152,9 +152,8 @@ echo "  Next steps:"
 echo "    1. Open Claude Code: type 'claude' in your terminal"
 echo "    2. Log in with your Anthropic / Claude Max account"
 echo "    3. Type '/help' to see every installed skill"
-echo "    4. Type 'fd121' for master recall + full system status"
-echo "    5. Open BRAIN in Obsidian: open ~/BRAIN as a vault"
-echo "    6. Start your first task: type /office-hours"
+echo "    4. Open BRAIN in Obsidian: open ~/BRAIN as a vault"
+echo "    5. Start your first task: type /office-hours"
 echo ""
 echo "  Your AI Software Factory is ready."
 echo ""
