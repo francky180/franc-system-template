@@ -120,7 +120,7 @@ RULES
 - **47 agency-agents** — specialist subagents for paid media, sales, finance, support, testing, marketing (→ `~/.claude/agents/`)
 - **15 Seedance 2.0 skills** — Higgsfield cinematic video prompt library
 
-**Post-install totals:** **~178 skill folders** in `~/.claude/skills/` (114 bundled + ~35 gstack + ~14 superpowers + 15 Seedance) and **47 agents** in `~/.claude/agents/`, plus the BRAIN vault and the auto-sync hook. Add the 12 MCPs with `claude mcp add` to complete the stack.
+**Post-install totals:** **130+ skill folders** in `~/.claude/skills/` (114 bundled + gstack + superpowers + 15 Seedance) and **47 agents** in `~/.claude/agents/`, plus the BRAIN vault and the auto-sync hook. Note: `gstack` is one folder that itself bundles a full ~290-skill engineering team, so your effective skill count is far higher. Add the 12 MCPs with `claude mcp add` to complete the stack.
 
 Run `/help` inside Claude Code to list every installed skill.
 
