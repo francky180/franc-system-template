@@ -2,7 +2,3 @@ node_modules/
 .obsidian/
 *.log
 .gitnexus
-dashboard/node_modules/
-dashboard/.next/
-dashboard/.env.local
-dashboard/.vercel
