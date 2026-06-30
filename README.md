@@ -38,38 +38,59 @@ git clone https://github.com/francky180/franc-system-template && cd franc-system
 
 ## 🤖 Auto-Rebuild Prompt — paste this into Claude after login
 
-The install block above gets Claude Code running. This prompt makes Claude do the rest — clone the template, install all 115 skills + MCPs + BRAIN + auto-sync hook, verify everything, and report back. **You never leave Claude.**
+The install block above gets Claude Code running. This prompt makes Claude do the rest — clone the template, install all 114 skills + gstack + superpowers + the 47 agency-agents + 15 Seedance skills + BRAIN + auto-sync hook, list the MCPs to add, verify everything, and report back. **You never leave Claude.**
 
 ```
-🚀 REBUILD MISSION — install the full franc-system from inside Claude. Execute every step, don't ask me anything, report at the end.
+🚀 REBUILD MISSION — install the full AI Software Factory from inside Claude. Execute every step, don't ask, report at the end.
 
 STEP 1 · CLONE
    git clone https://github.com/francky180/franc-system-template ~/franc-system-template
 
-STEP 2 · INSTALL ALL (115 skills, 4 MCPs, BRAIN vault, auto-sync hook)
+STEP 2 · INSTALL CORE (114 skills + gstack + superpowers + BRAIN + CLAUDE.md + settings + auto-sync hook)
    cd ~/franc-system-template && bash ai-tools/install-all.sh
 
-STEP 3 · VERIFY — run each, capture output
+STEP 3 · INSTALL AGENCY-AGENTS (47 specialist subagents — paid media, sales, finance, support, testing, marketing)
+   git clone https://github.com/msitarzewski/agency-agents /tmp/agency-agents
+   mkdir -p ~/.claude/agents
+   cp /tmp/agency-agents/agents/*.md ~/.claude/agents/
+
+STEP 4 · INSTALL SEEDANCE 2.0 SKILLS (15 Higgsfield prompt skills)
+   git clone https://github.com/beshuaxian/higgsfield-seedance2-jineng /tmp/seedance
+   for d in /tmp/seedance/skills/*/; do
+     name=$(grep -m1 "^name:" "$d/SKILL.md" | sed "s/name: //")
+     [ -d "$HOME/.claude/skills/$name" ] || cp -r "$d" "$HOME/.claude/skills/$name"
+   done
+
+STEP 5 · MCP SERVERS — add after login with `claude mcp add <name>` (your own API keys):
+   gitnexus, vercel, playwright, stripe, codex, filesystem, adadvisor,
+   tradingview, transcript-api, context7, sequential-thinking, shadcn-ui
+
+STEP 6 · VERIFY — run each, capture output
    - node --version
    - git --version
    - claude --version
-   - find ~/.claude/skills -maxdepth 1 -type d | wc -l    (expect 100+)
-   - grep -c rebuild-sync ~/.claude/settings.json         (expect >= 1)
+   - find ~/.claude/skills -maxdepth 1 -type d | wc -l    (expect 130+)
+   - ls ~/.claude/agents/*.md | wc -l                      (expect 47+)
+   - grep -c rebuild-sync ~/.claude/settings.json          (expect >= 1)
 
-STEP 4 · REPORT in this format
+STEP 7 · REPORT
    ✅ Step 1 — cloned to ~/franc-system-template
-   ✅ Step 2 — N skills · 4 MCPs · BRAIN · auto-sync hook installed
-   ✅ Verify — Node vXX · Git X.X · Claude X.X · NNN skills · hook present
+   ✅ Step 2 — N skills · gstack · superpowers · BRAIN · auto-sync hook installed
+   ✅ Step 3 — M agency-agents installed
+   ✅ Step 4 — 15 Seedance prompt skills installed
+   ✅ Step 5 — MCPs to add manually with claude mcp add
+   ✅ Verify — Node vXX · Git X.X · Claude X.X · NNN skills · MM agents · hook present
 
-   End with: "Rebuild complete. Type /help to see all skills."
+   End with: "Rebuild complete. Type /help to see all skills, then /office-hours to start your first build."
 
 RULES
 • Execute, don't ask. No "can I?" — just do it.
+• install-all.sh and the copies are additive (no-clobber) — they never delete your existing skills.
 • If a step fails, don't halt. Complete the rest, then show the one-line fix for the failure.
 • Tone: short, confident, no apologies, no filler.
 ```
 
-> **Want the full rebuild with all 115 skills?** See the [Quick Start (5 minutes)](#quick-start-5-minutes) section below — it runs `install-all.sh` to copy every skill into `~/.claude/skills/`.
+> **What you end up with:** 114 bundled skills + gstack (~35) + superpowers (~14) + 15 Seedance = **~178 skills**, **47 agency-agents**, the BRAIN vault, and the auto-sync hook. See [Quick Start (5 minutes)](#quick-start-5-minutes) below.
 
 ## What You Get When You Clone This Repo
 
@@ -94,7 +115,12 @@ RULES
 - **Claude Code CLI** (if not already installed)
 - **Bun runtime** (if not already installed)
 
-**Post-install skill total in `~/.claude/skills/`: 115+ folders** (114 bundled + gstack + superpowers, plus any you add later).
+**Plus added by the Auto-Rebuild Prompt (Steps 3–4):**
+
+- **47 agency-agents** — specialist subagents for paid media, sales, finance, support, testing, marketing (→ `~/.claude/agents/`)
+- **15 Seedance 2.0 skills** — Higgsfield cinematic video prompt library
+
+**Post-install totals:** **~178 skill folders** in `~/.claude/skills/` (114 bundled + ~35 gstack + ~14 superpowers + 15 Seedance) and **47 agents** in `~/.claude/agents/`, plus the BRAIN vault and the auto-sync hook. Add the 12 MCPs with `claude mcp add` to complete the stack.
 
 Run `/help` inside Claude Code to list every installed skill.
 
