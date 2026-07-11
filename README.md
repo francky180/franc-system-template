@@ -1,6 +1,6 @@
 # AI Software Factory
 
-Turn Claude Code into a virtual engineering team. **115 skills. One person.**
+Turn Claude Code into a virtual engineering team. **133 skills. One person.**
 
 ## 🚀 One-Command Install (any device)
 
