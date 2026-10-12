@@ -13,21 +13,21 @@ cost **$0** — no OpenAI key, no per-row billing.
 
 | | |
 |---|---|
-| venv | `C:/Users/franc/ai-tools/scraper-env` |
-| python | `C:/Users/franc/ai-tools/scraper-env/Scripts/python.exe` — **`Scripts/`, not `bin/`** |
-| runner | `C:/Users/franc/ai-tools/scrape.py` |
-| output | CSV → `C:/Users/franc/Downloads/` (Francky's one-place rule) |
+| venv | `~/ai-tools/scraper-env` (create: `python -m venv ~/ai-tools/scraper-env`) |
+| python | `~/ai-tools/scraper-env/Scripts/python.exe` — **`Scripts/`, not `bin/`** |
+| runner | `~/ai-tools/scrape.py` (copy from this repo's `ai-tools/scrape.py`) |
+| output | CSV → `~/Downloads/` |
 
 ## Run it
 
 ```bash
-PY="/c/Users/franc/ai-tools/scraper-env/Scripts/python.exe"
-$PY /c/Users/franc/ai-tools/scrape.py "<plain-English ask>" "<url>" [out-name]
+PY="$HOME/ai-tools/scraper-env/Scripts/python.exe"
+$PY $HOME/ai-tools/scrape.py "<plain-English ask>" "<url>" [out-name]
 ```
 
 Example:
 ```bash
-$PY /c/Users/franc/ai-tools/scrape.py \
+$PY $HOME/ai-tools/scrape.py \
   "every business name, phone number and rating" \
   "https://example.com/results" orlando-roofers
 ```
@@ -49,6 +49,6 @@ Prints a markdown table. Writes `Downloads/<out-name>.csv` automatically when ro
 
 ## What it does NOT solve
 
-Francky already has three scrapers (Google Maps lead engine, Scrapling, crawl4ai) and
-**11,326 contacts he cannot safely mail**. More rows is rarely the bottleneck — if a
+Most people already have more scrapers and contact lists than they can use. If you hold
+**contacts you cannot safely mail**, more rows is rarely the bottleneck — if a
 request smells like "collect more names", ask what happens to them after.

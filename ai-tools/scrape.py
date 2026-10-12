@@ -20,7 +20,7 @@ except Exception:
 OMNI_BASE = os.environ.get("OPENAI_BASE_URL", "http://localhost:20128/v1")
 OMNI_KEY = os.environ.get("OPENAI_API_KEY", "omniroute")
 MODEL = os.environ.get("SCRAPER_MODEL", "auto/best-coding")
-DOWNLOADS = r"C:\Users\franc\Downloads"
+DOWNLOADS = os.path.join(os.path.expanduser("~"), "Downloads")
 
 # Without this the model happily answers in prose and you get one useless row.
 SHAPE = (" Return ONLY a JSON array of objects — one object per item, consistent "

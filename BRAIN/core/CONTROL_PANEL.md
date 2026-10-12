@@ -14,7 +14,7 @@ BRAIN is your local AI operating system — a single folder that holds all intel
 - **Claude Desktop** — use as project instructions in any Claude project
 - **ManyChat** — follow `automations/manychat-flow.md` to build DM flows
 - **Vercel** — follow `automations/vercel-api-plan.md` to scaffold API routes
-- **Obsidian** — open `C:\Users\franc\BRAIN` as a vault for linked navigation
+- **Obsidian** — open `C:\Users\<you>\BRAIN` as a vault for linked navigation
 - **VS Code** — open as workspace for editing and development
 
 ---
@@ -87,7 +87,7 @@ BRAIN is your local AI operating system — a single folder that holds all intel
 
 | Tool | How to Open |
 |------|------------|
-| **Obsidian** | Open Vault → select `C:\Users\franc\BRAIN` |
-| **VS Code** | File → Open Folder → `C:\Users\franc\BRAIN` |
-| **Claude Code** | `cd C:\Users\franc\BRAIN` then work normally |
-| **File Explorer** | Navigate to `C:\Users\franc\BRAIN` |
+| **Obsidian** | Open Vault → select `C:\Users\<you>\BRAIN` |
+| **VS Code** | File → Open Folder → `C:\Users\<you>\BRAIN` |
+| **Claude Code** | `cd C:\Users\<you>\BRAIN` then work normally |
+| **File Explorer** | Navigate to `C:\Users\<you>\BRAIN` |

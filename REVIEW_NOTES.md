@@ -1,7 +1,7 @@
 # Codex Review - franc-system-template - 2026-04-26
 
 ## Summary
-Reviewed the clean-mode boot contract against the live workspace root at `C:\Users\franc\Projects`. The public/template repo is not currently a complete source of truth for the four-file contract because `SYSTEM_PROMPT.md` and `CODEX.md` are missing, while root `AGENTS.md` and `CLAUDE.md` contain older template/GitNexus setup material that does not match the live workspace contract.
+Reviewed the clean-mode boot contract against the live workspace root at `C:\Users\<you>\Projects`. The public/template repo is not currently a complete source of truth for the four-file contract because `SYSTEM_PROMPT.md` and `CODEX.md` are missing, while root `AGENTS.md` and `CLAUDE.md` contain older template/GitNexus setup material that does not match the live workspace contract.
 
 ## Findings (severity-ordered)
 
@@ -9,15 +9,15 @@ Reviewed the clean-mode boot contract against the live workspace root at `C:\Use
 **File:** `SYSTEM_PROMPT.md`, `CODEX.md`
 **Issue:** The boot prompt expects both files at the template repo root, but neither exists in `franc-system-template` or the freshly cloned `franc-system-template-latest`. This makes Step 0/Step 1 fail for clean installs.
 **Suggested fix:** Add root copies of the current live workspace files:
-- `C:\Users\franc\Projects\SYSTEM_PROMPT.md`
-- `C:\Users\franc\Projects\CODEX.md`
+- `C:\Users\<you>\Projects\SYSTEM_PROMPT.md`
+- `C:\Users\<you>\Projects\CODEX.md`
 
 ### HIGH - Template AGENTS/CLAUDE drift from live workspace contract
 **File:** `AGENTS.md`, `CLAUDE.md`
 **Issue:** The template versions contain setup/GitNexus bootstrap content and differ materially from the live clean workspace contract files. A fresh user following the template will not get the same Claude/Codex operating rules as the live workspace.
 **Suggested fix:** Merge the clean live contract content from:
-- `C:\Users\franc\Projects\AGENTS.md`
-- `C:\Users\franc\Projects\CLAUDE.md`
+- `C:\Users\<you>\Projects\AGENTS.md`
+- `C:\Users\<you>\Projects\CLAUDE.md`
 
 Preserve any template-specific install guidance in `README.md`, `install.ps1`, or dedicated setup docs instead of mixing it into the root operating contract.
 

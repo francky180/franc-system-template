@@ -40,13 +40,13 @@ When installing on a new machine, these steps are CRITICAL:
 ### Key Paths on This System
 - Node.js: `C:\Program Files\nodejs\`
 - Git: `C:\Program Files\Git\`
-- Claude: `C:\Users\franc\.local\bin\claude`
-- Bun: `C:\Users\franc\.bun\bin\bun`
-- Skills: `C:\Users\franc\.claude\skills\`
-- BRAIN: `C:\Users\franc\BRAIN\`
-- Projects: `C:\Users\franc\Projects\websites\`
-- AI Tools: `C:\Users\franc\ai-tools\`
-- NPM Global: `C:\Users\franc\AppData\Roaming\npm\`
+- Claude: `C:\Users\<you>\.local\bin\claude`
+- Bun: `C:\Users\<you>\.bun\bin\bun`
+- Skills: `C:\Users\<you>\.claude\skills\`
+- BRAIN: `C:\Users\<you>\BRAIN\`
+- Projects: `C:\Users\<you>\Projects\websites\`
+- AI Tools: `C:\Users\<you>\ai-tools\`
+- NPM Global: `C:\Users\<you>\AppData\Roaming\npm\`
 
 ### Environment Variables to Set (If PATH Issues)
 If tools aren't found after install, add these to your system PATH:
