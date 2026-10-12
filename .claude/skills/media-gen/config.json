@@ -1,0 +1,4 @@
+{
+  "output_dir": "~/Videos/Media Gen",
+  "_comment": "Output root. Each generation creates a dated subfolder here. Change this path if you want media saved elsewhere. Tilde expansion and env vars supported. Avoid putting it inside a cloud-synced folder; videos are large and will bloat sync."
+}

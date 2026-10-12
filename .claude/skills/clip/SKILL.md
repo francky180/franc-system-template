@@ -29,11 +29,16 @@ python "<SKILL_DIR>/scripts/transcribe.py" audio.mp3 .
 ```
 python "<SKILL_DIR>/scripts/pick_moments.py" transcript.txt . 4
 ```
-This calls MiniMax M2.7 (free NVIDIA NIM, `NVIDIA_API_KEY` env) to read `transcript.txt` and write `segments.json` — 3–5 self-contained scroll-stopping segments (hook + payoff, 15–60s, clean sentence starts). $0 per call. Output shape:
+This calls a free NVIDIA NIM model (`NVIDIA_API_KEY` env; the model is resolved at runtime and probed, so a retired model no longer breaks it — override with `NVIDIA_CLIP_MODEL`). It reads the WHOLE transcript in windows (long podcasts are fully covered) and writes `segments.json` — 3–5 self-contained scroll-stopping segments (hook + payoff, 15–60s, clean sentence starts). $0 per call. Output shape:
 ```json
 [{"start": 44.9, "end": 79.0, "title": "is-time-real", "hook": "Is time permanent?"}]
 ```
 (Last arg = number of clips, default 4. Fallback: if the model is down, Claude can still `Read` transcript.txt and hand-write `segments.json` in the same shape.)
+
+**Long audio (over ~25 MB / ~50 min)?** Groq rejects big uploads — use the chunked transcriber instead (same outputs):
+```
+python "<SKILL_DIR>/scripts/transcribe_chunked.py" audio.mp3 .
+```
 
 **Step 3 — Render.**
 ```
@@ -45,5 +50,5 @@ Outputs `clip_NN_slug.mp4` — 1080x1920, blurred-bg framing (both speakers stay
 
 ## Notes
 - Caption position/size: edit the `Style: Reel` line in `render_clips.py` (Fontsize, MarginV).
-- Framing style is blurred-background (best for 2-person talks). For solo/single-subject, a center-crop variant can be swapped into the filtergraph.
+- Framing style is blurred-background (best for 2-person talks). **One person on camera?** Use `scripts/render_clips_solo.py` (same args, optional 5th arg = crop centre 0-1) — it fills the 9:16 frame so the speaker is ~3x larger. Look at one frame of the source before choosing.
 - On a GPU box: add mediapipe/opencv for face-tracking reframe; same scripts otherwise.

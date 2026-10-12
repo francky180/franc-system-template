@@ -15,7 +15,7 @@ for envpath in (os.path.expanduser("~/.config/watch/.env"),):
 key = key or os.environ.get("GROQ_API_KEY")
 assert key, "no GROQ_API_KEY found (~/.config/watch/.env or env)"
 
-boundary = "----phimindflowclip"
+boundary = "----clipboundary"
 def field(name, value):
     return (f'--{boundary}\r\nContent-Disposition: form-data; name="{name}"\r\n\r\n{value}\r\n').encode()
 body = field("model", "whisper-large-v3")
@@ -27,7 +27,7 @@ body += (f'--{boundary}\r\nContent-Disposition: form-data; name="file"; filename
 body += f"--{boundary}--\r\n".encode()
 
 req = urllib.request.Request("https://api.groq.com/openai/v1/audio/transcriptions", data=body,
-    headers={"Authorization": f"Bearer {key}", "User-Agent": "Mozilla/5.0 phimindflow-clip",
+    headers={"Authorization": f"Bearer {key}", "User-Agent": "Mozilla/5.0 clip-skill",
              "Accept": "application/json", "Content-Type": f"multipart/form-data; boundary={boundary}"})
 resp = json.loads(urllib.request.urlopen(req, timeout=300).read())
 

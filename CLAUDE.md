@@ -27,12 +27,12 @@ pkg upgrade -y && pkg install nodejs-lts git -y && npm install -g @anthropic-ai/
 ## Rule 2 — Log in to Claude Max
 When `claude` launches, it opens your browser. Log in with your **Claude Max** account ([claude.ai/pricing](https://claude.ai/pricing)). First-time only.
 
-## Rule 3 — Verify 115 skills loaded
+## Rule 3 — Verify 190+ skills loaded
 In Claude Code, type:
 ```
 /help
 ```
-You should see `/office-hours`, `/ship`, `/autoplan`, and 112 more. If yes — you're ready.
+You should see `/office-hours`, `/ship`, `/autoplan`, and 190+ more. If yes — you're ready.
 
 ## Rule 4 — Start every task with `/office-hours`
 Before building anything, run `/office-hours`. Six forcing questions that save weeks of wrong direction.

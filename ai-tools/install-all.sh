@@ -8,7 +8,7 @@ set -e
 echo ""
 echo "=========================================="
 echo "  AI SOFTWARE FACTORY INSTALL"
-echo "  115+ Skills in 5 Minutes"
+echo "  190+ Skills in 5 Minutes"
 echo "=========================================="
 echo ""
 
@@ -140,7 +140,7 @@ TOTAL=$(find "$HOME/.claude/skills" -maxdepth 1 -mindepth 1 -type d 2>/dev/null 
 echo "  You now have:"
 echo "    - Claude Code CLI"
 echo "    - Bun $(bun --version 2>/dev/null || echo 'installed')"
-echo "    - ${BUNDLED_COUNT:-114} bundled AI Software Factory skills (copied into ~/.claude/skills/)"
+echo "    - ${BUNDLED_COUNT:-192} bundled AI Software Factory skills (copied into ~/.claude/skills/)"
 echo "    - gstack (35+ specialist skills) at ~/.claude/skills/gstack/"
 echo "    - Superpowers (14 process skills) at ~/.claude/skills/superpowers/"
 echo "    - BRAIN Obsidian vault at ~/BRAIN"

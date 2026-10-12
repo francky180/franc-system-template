@@ -1,6 +1,6 @@
 # AI Software Factory
 
-Turn Claude Code into a virtual engineering team. **133 skills. One person.**
+Turn Claude Code into a virtual engineering team. **190+ bundled skills. One person.**
 
 ## 🚀 One-Command Install (any device)
 
@@ -38,7 +38,7 @@ git clone https://github.com/francky180/franc-system-template && cd franc-system
 
 ## 🤖 Auto-Rebuild Prompt — paste this into Claude after login
 
-The install block above gets Claude Code running. This prompt makes Claude do the rest — clone the template, install all 114 skills + gstack + superpowers + the 47 agency-agents + 15 Seedance skills + BRAIN + auto-sync hook, list the MCPs to add, verify everything, and report back. **You never leave Claude.**
+The install block above gets Claude Code running. This prompt makes Claude do the rest — clone the template, install all 192 bundled skills + gstack + superpowers + the 47 agency-agents + 15 Seedance skills + BRAIN + auto-sync hook, list the MCPs to add, verify everything, and report back. **You never leave Claude.**
 
 ```
 🚀 REBUILD MISSION — install the full AI Software Factory from inside Claude. Execute every step, don't ask, report at the end.
@@ -46,7 +46,7 @@ The install block above gets Claude Code running. This prompt makes Claude do th
 STEP 1 · CLONE
    git clone https://github.com/francky180/franc-system-template ~/franc-system-template
 
-STEP 2 · INSTALL CORE (114 skills + gstack + superpowers + BRAIN + CLAUDE.md + settings + auto-sync hook)
+STEP 2 · INSTALL CORE (192 skills + gstack + superpowers + BRAIN + CLAUDE.md + settings + auto-sync hook)
    cd ~/franc-system-template && bash ai-tools/install-all.sh
 
 STEP 3 · INSTALL AGENCY-AGENTS (47 specialist subagents — paid media, sales, finance, support, testing, marketing)
@@ -69,7 +69,7 @@ STEP 6 · VERIFY — run each, capture output
    - node --version
    - git --version
    - claude --version
-   - find ~/.claude/skills -maxdepth 1 -type d | wc -l    (expect 130+)
+   - find ~/.claude/skills -maxdepth 1 -type d | wc -l    (expect 190+)
    - ls ~/.claude/agents/*.md | wc -l                      (expect 47+)
    - grep -c rebuild-sync ~/.claude/settings.json          (expect >= 1)
 
@@ -90,11 +90,11 @@ RULES
 • Tone: short, confident, no apologies, no filler.
 ```
 
-> **What you end up with:** 114 bundled skills + gstack (~35) + superpowers (~14) + 15 Seedance = **~178 skills**, **47 agency-agents**, the BRAIN vault, and the auto-sync hook. See [Quick Start (5 minutes)](#quick-start-5-minutes) below.
+> **What you end up with:** 192 bundled skills (incl. the 15 Seedance + content pack) + gstack (~35) + superpowers (~14) = **~240 skills**, **47 agency-agents**, the BRAIN vault, and the auto-sync hook. See [Quick Start (5 minutes)](#quick-start-5-minutes) below.
 
 ## What You Get When You Clone This Repo
 
-**Bundled in this repo (114 skills — copied to `~/.claude/skills/` on install):**
+**Bundled in this repo (192 skill folders — copied to `~/.claude/skills/` on install):**
 
 | Category | Count | Examples |
 |---|---|---|
@@ -104,6 +104,10 @@ RULES
 | **Design System** | 15 | `/design-consultation` `/design-shotgun` `/banner-design` `/frontend-design` `/ui-styling` `/ui-ux-pro-max` `/slides` |
 | **GitNexus (code graph)** | 8 | `/gitnexus-impact-analysis` `/gitnexus-debugging` `/gitnexus-refactoring` `/gitnexus-pr-review` |
 | **Best Practices** | 4 | `/next-best-practices` `/vercel-react-best-practices` `/remotion-best-practices` `/playwright-best-practices` |
+| **Content & Video pack** | 22 | `/clip` `/watch` `/perfect-cuts` `/faceless` `/outliers` `/yt` `/media-gen` + 15 `/seedance-*` |
+| **SEO Suite** | 31 | `/seo` `/seo-audit` `/seo-technical` `/seo-local` `/seo-schema` `/seo-geo` `/seo-content` `/seo-sitemap` |
+| **Frontend · Animation** | 13 | `/gsap-core` `/gsap-scrolltrigger` `/gsap-react` `/react-patterns` `/react-performance` `/vite-patterns` `/nextjs-turbopack` |
+| **Quality · Writing** | 11 | `/render-check` `/verification-loop` `/tdd-workflow` `/python-patterns` `/error-handling` `/prompt-optimizer` `/unslop` `/arena` `/bro` |
 
 **Plus installed automatically by `install-all.sh`:**
 
@@ -120,7 +124,7 @@ RULES
 - **47 agency-agents** — specialist subagents for paid media, sales, finance, support, testing, marketing (→ `~/.claude/agents/`)
 - **15 Seedance 2.0 skills** — Higgsfield cinematic video prompt library
 
-**Post-install totals:** **130+ skill folders** in `~/.claude/skills/` (114 bundled + gstack + superpowers + 15 Seedance) and **47 agents** in `~/.claude/agents/`, plus the BRAIN vault and the auto-sync hook. Note: `gstack` is one folder that itself bundles a full ~290-skill engineering team, so your effective skill count is far higher. Add the 12 MCPs with `claude mcp add` to complete the stack.
+**Post-install totals:** **190+ skill folders** in `~/.claude/skills/` (192 bundled incl. 15 Seedance + gstack + superpowers) and **47 agents** in `~/.claude/agents/`, plus the BRAIN vault and the auto-sync hook. Note: `gstack` is one folder that itself bundles a full ~290-skill engineering team, so your effective skill count is far higher. Add the 12 MCPs with `claude mcp add` to complete the stack.
 
 Run `/help` inside Claude Code to list every installed skill.
 
@@ -198,7 +202,7 @@ claude
 1. Installs Node.js LTS + Git (if missing)
 2. Installs Claude Code globally via npm
 3. Clones this template to `~/ai-software-factory`
-4. Runs `install-all.sh` — copies all 115 skills into `~/.claude/skills/`
+4. Runs `install-all.sh` — copies all 192 bundled skills into `~/.claude/skills/`
 5. Launches `claude` — opens browser for Claude Max login (first-time only)
 
 ### Verify
@@ -209,7 +213,7 @@ Once Claude Code is running, type:
 /help
 ```
 
-You should see all 115 skills listed. If `/office-hours`, `/ship`, or `/autoplan` show up, you're done.
+You should see all 190+ skills listed. If `/office-hours`, `/ship`, or `/autoplan` show up, you're done.
 
 ### Prerequisites (what the scripts install for you)
 
@@ -218,7 +222,7 @@ You should see all 115 skills listed. If `/office-hours`, `/ship`, or `/autoplan
 - **Claude Code** — installed automatically
 - **Claude Max subscription** — you need this separately ([claude.ai/pricing](https://claude.ai/pricing))
 
-## All 115 Skills
+## All Skills (192 bundled)
 
 ### gstack — Virtual Engineering Team (40+)
 
@@ -369,6 +373,22 @@ You should see all 115 skills listed. If `/office-hours`, `/ship`, or `/autoplan
 | `/agent-reach` | 17 platforms via CLI, MCP, curl, Python |
 | `/superpowers` | Process discipline (design-first, TDD, review) |
 | `/deploy-to-vercel` | Deploy apps to Vercel |
+
+### New in October 2026 (60 skills added)
+
+| Skill | What it does |
+|---|---|
+| `/faceless` | Topic → researched script → free AI voice → fal B-roll → captioned 9:16 Short |
+| `/outliers` | Finds videos beating their own channel's median — research what already works before filming |
+| `/yt` | Any video link → metadata + clean timestamped transcript, no API, no credits |
+| `/media-gen` | Generate / upscale AI images and videos via fal.ai with a curated model registry |
+| `/render-check` | Screenshot or compile what you shipped, read it back, fix, re-render — before calling it done |
+| `/clip` (updated) | Model auto-resolve (no more dead-model breaks), full-length transcript coverage, chunked transcription for long podcasts, solo-speaker crop renderer |
+| `/unslop` · `/prompt-optimizer` · `/bro` | Cut AI tells from writing · sharpen prompts · restate anything in plain words |
+| `/arena` | Run N parallel attempts, pick the best, graft in the strongest parts of the rest |
+| `/seo` + 30 `seo-*` | Full SEO suite: audits, technical, local, schema, GEO/AI search, content briefs, sitemaps (MIT, claude-seo) |
+| `/gsap-*` (8) | Official GSAP animation skills: core, timeline, ScrollTrigger, React, plugins, performance (MIT, GreenSock) |
+| React · Vite · Next · Python · TDD | `react-patterns` `react-performance` `react-testing` `vite-patterns` `nextjs-turbopack` `python-patterns` `python-testing` `tdd-workflow` `verification-loop` `error-handling` `mcp-server-patterns` |
 
 ### Speed Comparison
 

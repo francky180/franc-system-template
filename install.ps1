@@ -43,7 +43,7 @@ Set-Location $dest
 
 if (Test-Path "ai-tools\install-all.sh") {
     Write-Host ""
-    Write-Host "▶ Running install-all.sh (115 skills)…" -ForegroundColor Cyan
+    Write-Host "▶ Running install-all.sh (190+ skills)…" -ForegroundColor Cyan
     bash ai-tools/install-all.sh
 }
 
@@ -53,7 +53,7 @@ Write-Host "║   ✅ INSTALL COMPLETE                         ║" -ForegroundC
 Write-Host "║                                               ║" -ForegroundColor Green
 Write-Host "║   Launching Claude Code…                      ║" -ForegroundColor Green
 Write-Host "║   Log in with your Claude Max account.        ║" -ForegroundColor Green
-Write-Host "║   Then type /help to see all 115 skills.      ║" -ForegroundColor Green
+Write-Host "║   Then type /help to see all 190+ skills.   ║" -ForegroundColor Green
 Write-Host "╚═══════════════════════════════════════════════╝" -ForegroundColor Green
 Write-Host ""
 

@@ -1,0 +1,126 @@
+{
+  "last_updated": "2026-05-21",
+  "notes": "Curated 'current best' registry for Fal.ai. Update default and add entries when better models drop. Verify fal_id values at fal.ai/models if a 404 occurs. unit_price_per_second_usd is for video models; if missing or stale (>30 days), WebFetch fal.ai/models/{fal_id} before quoting cost.",
+
+  "image": {
+    "default": "nano-banana-pro",
+    "models": {
+      "nano-banana-pro": {
+        "fal_id": "fal-ai/nano-banana-pro",
+        "best_for": "Photorealistic and stylized image gen. Strong prompt adherence with natural-language descriptive prompts. Current Apr 2026 default. TEXT-TO-IMAGE ONLY, silently ignores image_urls. Use nano-banana-pro-edit for image-to-image.",
+        "default_args": {
+          "aspect_ratio": "16:9",
+          "resolution": "2K",
+          "num_images": 1
+        },
+        "output_path": "images[0].url"
+      },
+      "nano-banana-pro-edit": {
+        "fal_id": "fal-ai/nano-banana-pro/edit",
+        "best_for": "Image-to-image editing variant of Nano Banana Pro. Honors image_urls as actual reference photos for identity/composition preservation. Use this when passing --input-image.",
+        "default_args": {
+          "aspect_ratio": "1:1",
+          "resolution": "2K",
+          "num_images": 1
+        },
+        "output_path": "images[0].url"
+      },
+      "gpt-image-2": {
+        "fal_id": "fal-ai/gpt-image-2",
+        "best_for": "Alternative when Nano Banana misinterprets complex multi-subject scenes. Stylized output.",
+        "default_args": {
+          "num_images": 1
+        },
+        "output_path": "images[0].url"
+      }
+    }
+  },
+
+  "video_image_to_video": {
+    "default": "seedance-2-pro",
+    "models": {
+      "seedance-2-pro": {
+        "fal_id": "bytedance/seedance-2.0/image-to-video",
+        "best_for": "ByteDance's flagship image-to-video Apr 2026. Cinematic motion, synchronized audio, start/end frame control. Strong general-purpose default. NOTE: 1080p is ~4x the price of Kling v3 Pro; use 720p or Kling for drafts.",
+        "default_args": {
+          "duration": 5,
+          "resolution": "1080p"
+        },
+        "unit_price_per_second_usd": 0.6804,
+        "pricing_note": "Resolution-tiered: 720p = $0.3024/s, 1080p (the default) = $0.6804/s. A 5s video is ~$3.40 at 1080p, ~$1.51 at 720p.",
+        "price_last_verified": "2026-07-12",
+        "output_path": "video.url"
+      },
+      "seedance-2-fast": {
+        "fal_id": "bytedance/seedance-2.0/fast/image-to-video",
+        "best_for": "Faster, cheaper Seedance. Use for iteration drafts. Maxes out at 720p.",
+        "default_args": {
+          "duration": 5,
+          "resolution": "720p"
+        },
+        "unit_price_per_second_usd": 0.2419,
+        "pricing_note": "720p max. A 5s video is ~$1.21.",
+        "price_last_verified": "2026-07-12",
+        "output_path": "video.url"
+      },
+      "kling-v3-pro": {
+        "fal_id": "fal-ai/kling-video/v3/pro/image-to-video",
+        "best_for": "Top-tier Kling. Cinematic visuals, fluid motion, native audio. Strong alternative when Seedance feels stiff. Cheap iteration option vs kling-v3-4k.",
+        "default_args": {
+          "duration": 5
+        },
+        "unit_price_per_second_usd": 0.168,
+        "unit_price_per_second_usd_audio_off": 0.112,
+        "price_last_verified": "2026-05-21",
+        "output_path": "video.url"
+      },
+      "kling-v3-4k": {
+        "fal_id": "fal-ai/kling-video/v3/4k/image-to-video",
+        "best_for": "Native 4K Kling. Use only when 4K final delivery is required. Slower and more expensive.",
+        "default_args": {
+          "duration": 5
+        },
+        "unit_price_per_second_usd": 0.42,
+        "price_last_verified": "2026-05-21",
+        "output_path": "video.url"
+      }
+    }
+  },
+
+  "upscale_video": {
+    "default": "topaz-video",
+    "models": {
+      "topaz-video": {
+        "fal_id": "fal-ai/topaz/upscale/video",
+        "best_for": "Topaz Video AI upscaler. Cleans + sharpens + upscales real footage. Use for making low-res clips HD. Proteus model is the safe general default. Scales by a single upscale_factor so aspect ratio is always preserved.",
+        "default_args": {
+          "model": "Proteus",
+          "recover_detail": 0.5,
+          "H264_output": true
+        },
+        "pricing_tiers_per_second_usd": {
+          "up_to_720p": 0.01,
+          "720p_to_1080p": 0.02,
+          "above_1080p": 0.08,
+          "note": "Price DOUBLES if output is 60fps. To stay on the cheaper tier, downconvert the source to 30fps before upscaling (the script's --fps flag does this)."
+        },
+        "price_last_verified": "2026-06-04",
+        "output_path": "video.url"
+      }
+    }
+  },
+
+  "upscale_image": {
+    "default": "topaz-image",
+    "models": {
+      "topaz-image": {
+        "fal_id": "fal-ai/topaz/upscale/image",
+        "best_for": "Topaz image upscaler. Sharpens + upscales photos. Standard V2 model is the safe default. Scales by a single upscale_factor so aspect ratio is always preserved. Cheap (per-image, not per-second).",
+        "default_args": {
+          "model": "Standard V2"
+        },
+        "output_path": "image.url"
+      }
+    }
+  }
+}

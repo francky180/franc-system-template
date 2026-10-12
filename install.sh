@@ -82,7 +82,7 @@ cd "$DEST"
 # Run installer
 if [ -f "ai-tools/install-all.sh" ]; then
   echo ""
-  echo "▶ Running install-all.sh (115 skills)…"
+  echo "▶ Running install-all.sh (190+ skills)…"
   bash ai-tools/install-all.sh
 fi
 
@@ -92,7 +92,7 @@ echo "║   ✅ INSTALL COMPLETE                         ║"
 echo "║                                               ║"
 echo "║   Launching Claude Code…                      ║"
 echo "║   Log in with your Claude Max account.        ║"
-echo "║   Then type /help to see all 115 skills.      ║"
+echo "║   Then type /help to see all 190+ skills.   ║"
 echo "╚═══════════════════════════════════════════════╝"
 echo ""
 
