@@ -4,24 +4,24 @@ Paste your OS command below into a terminal. It installs everything in one go.
 
 ## Rule 1 — Install Claude Code + this system (one command, any device)
 
-### 🪟 Windows (PowerShell — run as Administrator)
+### 🪟 Windows (PowerShell)
 ```powershell
-winget install OpenJS.NodeJS.LTS -e --accept-source-agreements --accept-package-agreements; winget install Git.Git -e --accept-source-agreements --accept-package-agreements; npm install -g @anthropic-ai/claude-code; git clone https://github.com/francky180/franc-system-template.git "$HOME\ai-software-factory"; cd "$HOME\ai-software-factory"; bash ai-tools/install-all.sh; claude
+Set-ExecutionPolicy Bypass -Scope Process -Force; winget install Git.Git -e --accept-source-agreements --accept-package-agreements; winget install OpenJS.NodeJS.LTS -e --accept-source-agreements --accept-package-agreements; irm https://claude.ai/install.ps1 | iex; $b="$env:USERPROFILE\.local\bin"; $u=[Environment]::GetEnvironmentVariable("Path","User"); if (($u -split ';') -notcontains $b) { [Environment]::SetEnvironmentVariable("Path","$b;$u","User") }; $env:Path="$b;"+[Environment]::GetEnvironmentVariable("Path","Machine")+";"+[Environment]::GetEnvironmentVariable("Path","User"); claude
 ```
 
 ### 🍎 Mac (Terminal)
 ```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && brew install node git && npm install -g @anthropic-ai/claude-code && git clone https://github.com/francky180/franc-system-template.git ~/ai-software-factory && cd ~/ai-software-factory && bash ai-tools/install-all.sh && claude
+curl -fsSL https://claude.ai/install.sh | bash; grep -qs '.local/bin' ~/.zshrc || echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc; export PATH="$HOME/.local/bin:$PATH"; claude
 ```
 
 ### 🐧 Linux (Debian / Ubuntu)
 ```bash
-sudo apt update && sudo apt install -y curl git && curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - && sudo apt install -y nodejs && sudo npm install -g @anthropic-ai/claude-code && git clone https://github.com/francky180/franc-system-template.git ~/ai-software-factory && cd ~/ai-software-factory && bash ai-tools/install-all.sh && claude
+sudo apt update && sudo apt install -y curl git; curl -fsSL https://claude.ai/install.sh | bash; grep -qs '.local/bin' ~/.bashrc || echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc; export PATH="$HOME/.local/bin:$PATH"; claude
 ```
 
 ### 📱 Termux (Android)
 ```bash
-pkg upgrade -y && pkg install nodejs-lts git -y && npm install -g @anthropic-ai/claude-code && git clone https://github.com/francky180/franc-system-template.git ~/ai-software-factory && cd ~/ai-software-factory && bash ai-tools/install-all.sh && claude
+yes | pkg update && yes | pkg upgrade && pkg install -y proot-distro && (npm uninstall -g @anthropic-ai/claude-code >/dev/null 2>&1; rm -f $PREFIX/bin/claude; proot-distro install ubuntu || true) && proot-distro login ubuntu -- bash -c "apt update && apt install -y curl git ca-certificates && curl -fsSL https://claude.ai/install.sh | bash" && echo 'termux-wake-lock 2>/dev/null; proot-distro login ubuntu -- bash -lc "mkdir -p ~/work && cd ~/work && ~/.local/bin/claude"' > $PREFIX/bin/claude && chmod +x $PREFIX/bin/claude && claude
 ```
 
 ## Rule 2 — Log in to Claude Max

@@ -6,16 +6,16 @@ Turn Claude Code into a virtual engineering team. **190+ bundled skills. One per
 
 Zero to Claude Code in a single paste. Pick your OS.
 
-### 💻 Windows (PowerShell as Admin)
+### 💻 Windows (PowerShell)
 
 ```powershell
-Set-ExecutionPolicy Bypass -Scope Process -Force; winget install OpenJS.NodeJS.LTS -e --accept-source-agreements --accept-package-agreements; winget install Git.Git -e --accept-source-agreements --accept-package-agreements; $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User"); node --version; npm --version; npm install -g @anthropic-ai/claude-code; [System.Environment]::SetEnvironmentVariable("CLAUDE_CODE_GIT_BASH_PATH","C:\Program Files\Git\bin\bash.exe","User"); $env:CLAUDE_CODE_GIT_BASH_PATH="C:\Program Files\Git\bin\bash.exe"; claude
+Set-ExecutionPolicy Bypass -Scope Process -Force; winget install Git.Git -e --accept-source-agreements --accept-package-agreements; winget install OpenJS.NodeJS.LTS -e --accept-source-agreements --accept-package-agreements; irm https://claude.ai/install.ps1 | iex; $b="$env:USERPROFILE\.local\bin"; $u=[Environment]::GetEnvironmentVariable("Path","User"); if (($u -split ';') -notcontains $b) { [Environment]::SetEnvironmentVariable("Path","$b;$u","User") }; $env:Path="$b;"+[Environment]::GetEnvironmentVariable("Path","Machine")+";"+[Environment]::GetEnvironmentVariable("Path","User"); claude
 ```
 
 ### 🍎 Mac (Terminal)
 
 ```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && brew install node && node --version && npm --version && npm install -g @anthropic-ai/claude-code && claude
+curl -fsSL https://claude.ai/install.sh | bash; grep -qs '.local/bin' ~/.zshrc || echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc; export PATH="$HOME/.local/bin:$PATH"; claude
 ```
 
 ### 📱 Android (Termux)
@@ -23,7 +23,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; winget install OpenJS.NodeJS.L
 Claude Code has no Android build, so this runs it inside a small Ubuntu in Termux (one paste, then type `claude` any time):
 
 ```bash
-yes | pkg update && yes | pkg upgrade && pkg install -y proot-distro && (proot-distro install ubuntu || true) && proot-distro login ubuntu -- bash -c "apt update && apt install -y curl git ca-certificates && curl -fsSL https://claude.ai/install.sh | bash" && echo 'termux-wake-lock 2>/dev/null; proot-distro login ubuntu -- bash -lc "mkdir -p ~/work && cd ~/work && ~/.local/bin/claude"' > $PREFIX/bin/claude && chmod +x $PREFIX/bin/claude && claude
+yes | pkg update && yes | pkg upgrade && pkg install -y proot-distro && (npm uninstall -g @anthropic-ai/claude-code >/dev/null 2>&1; rm -f $PREFIX/bin/claude; proot-distro install ubuntu || true) && proot-distro login ubuntu -- bash -c "apt update && apt install -y curl git ca-certificates && curl -fsSL https://claude.ai/install.sh | bash" && echo 'termux-wake-lock 2>/dev/null; proot-distro login ubuntu -- bash -lc "mkdir -p ~/work && cd ~/work && ~/.local/bin/claude"' > $PREFIX/bin/claude && chmod +x $PREFIX/bin/claude && claude
 ```
 
 ### 🔥 Optional — Repo link
