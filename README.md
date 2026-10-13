@@ -23,8 +23,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; winget install OpenJS.NodeJS.L
 Claude Code has no Android build, so this runs it inside a small Ubuntu in Termux (one paste, then type `claude` any time):
 
 ```bash
-yes | pkg update && yes | pkg upgrade && pkg install -y proot-distro && (proot-distro install ubuntu || true) && proot-distro login ubuntu -- bash -c "apt update && apt install -y curl git ca-certificates && curl -fsSL https://claude.ai/install.sh | bash" && printf '%s
-' 'termux-wake-lock 2>/dev/null; proot-distro login ubuntu -- bash -lc "mkdir -p ~/work && cd ~/work && ~/.local/bin/claude"' > $PREFIX/bin/claude && chmod +x $PREFIX/bin/claude && claude
+yes | pkg update && yes | pkg upgrade && pkg install -y proot-distro && (proot-distro install ubuntu || true) && proot-distro login ubuntu -- bash -c "apt update && apt install -y curl git ca-certificates && curl -fsSL https://claude.ai/install.sh | bash" && echo 'termux-wake-lock 2>/dev/null; proot-distro login ubuntu -- bash -lc "mkdir -p ~/work && cd ~/work && ~/.local/bin/claude"' > $PREFIX/bin/claude && chmod +x $PREFIX/bin/claude && claude
 ```
 
 ### 🔥 Optional — Repo link
