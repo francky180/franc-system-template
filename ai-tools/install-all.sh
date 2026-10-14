@@ -18,10 +18,15 @@ BACKUP_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 echo "[1/8] Checking prerequisites..."
 
 if ! command -v node &>/dev/null; then
-  echo "ERROR: Node.js not found. Install from https://nodejs.org/"
-  exit 1
+  echo "  Node.js not found. Installing..."
+  if command -v brew &>/dev/null; then brew install node || true
+  elif command -v apt-get &>/dev/null; then
+    SUDO=""; [ "$(id -u)" != "0" ] && command -v sudo &>/dev/null && SUDO="sudo"
+    (curl -fsSL https://deb.nodesource.com/setup_22.x | $SUDO bash - && $SUDO apt-get install -y nodejs) || $SUDO apt-get install -y nodejs npm || true
+  elif command -v winget &>/dev/null; then winget install OpenJS.NodeJS.LTS -e --accept-source-agreements --accept-package-agreements || true
+  fi
 fi
-echo "  Node.js: $(node --version)"
+if command -v node &>/dev/null; then echo "  Node.js: $(node --version)"; else echo "  WARNING: Node.js still missing. Skills install anyway; install Node from https://nodejs.org/ later."; fi
 
 if ! command -v git &>/dev/null; then
   echo "ERROR: Git not found. Install from https://git-scm.com/"
@@ -77,23 +82,30 @@ fi
 # ----- Step 5: Install gstack -----
 echo ""
 echo "[5/8] Installing gstack (35+ specialist skills)..."
-if [ -d "$HOME/.claude/skills/gstack" ]; then
+G="$HOME/.claude/skills/gstack"
+if [ -d "$G/.git" ]; then
   echo "  Already installed. Updating..."
-  cd "$HOME/.claude/skills/gstack" && git pull && ./setup
+  git -C "$G" pull --ff-only || echo "  (update skipped, keeping current copy)"
+elif [ -d "$G" ]; then
+  echo "  Present (copied, not a git repo). Keeping it."
 else
-  git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git "$HOME/.claude/skills/gstack"
-  cd "$HOME/.claude/skills/gstack" && ./setup
+  git -c core.longpaths=true clone --single-branch --depth 1 https://github.com/garrytan/gstack.git "$G" || echo "  WARNING: gstack clone failed, re-run this installer later."
 fi
+[ -x "$G/setup" ] && (cd "$G" && ./setup) || echo "  (gstack setup skipped or failed; the skills still load)"
+cd "$BACKUP_DIR"
 echo "  gstack installed."
 
 # ----- Step 6: Install Superpowers -----
 echo ""
 echo "[6/8] Installing Superpowers (14 process skills)..."
-if [ -d "$HOME/.claude/skills/superpowers" ]; then
+S="$HOME/.claude/skills/superpowers"
+if [ -d "$S/.git" ]; then
   echo "  Already installed. Updating..."
-  cd "$HOME/.claude/skills/superpowers" && git pull
+  git -C "$S" pull --ff-only || echo "  (update skipped, keeping current copy)"
+elif [ -d "$S" ]; then
+  echo "  Present (copied, not a git repo). Keeping it."
 else
-  git clone --single-branch --depth 1 https://github.com/obra/superpowers.git "$HOME/.claude/skills/superpowers"
+  git -c core.longpaths=true clone --single-branch --depth 1 https://github.com/obra/superpowers.git "$S" || echo "  WARNING: Superpowers clone failed, re-run this installer later."
 fi
 echo "  Superpowers installed."
 

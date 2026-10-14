@@ -89,10 +89,54 @@ RULES
 • Execute, don't ask. No "can I?" — just do it.
 • install-all.sh and the copies are additive (no-clobber) — they never delete your existing skills.
 • If a step fails, don't halt. Complete the rest, then show the one-line fix for the failure.
+• Run ONE command at a time, no parallel background jobs (phones and small laptops freeze).
 • Tone: short, confident, no apologies, no filler.
 ```
 
 > **What you end up with:** 192 bundled skills (incl. the 15 Seedance + content pack) + gstack (~35) + superpowers (~14) = **~240 skills**, **47 agency-agents**, the BRAIN vault, and the auto-sync hook. See [Quick Start (5 minutes)](#quick-start-5-minutes) below.
+
+## 🧭 Client Guide — what to expect (about 20 minutes)
+
+You do 3 small things yourself (log in, enter a code, press Allow). Claude does everything else.
+
+**Before you start:** charge to 50%+, use WiFi, have your Claude login ready (Pro or Max), and a free GitHub account.
+
+1. **Install (2-5 min).** Paste the ONE line for your device from the top of this page. It installs Claude and opens it. Don't close the window while it runs, even if it looks stuck.
+2. **Log in (1 min).** Claude shows a link. Open it, sign in, copy the code, paste it back.
+3. **Your system (10-15 min).** Paste the Auto-Rebuild Prompt above. Claude installs everything. When it asks permission, read the line and press 1 (Yes).
+4. **Connect your tools.** Paste the Connect Tools prompt below. It gives you ONE login link at a time: tap it, press Allow, type `done`.
+
+**Safety:** never paste passwords into the chat; only type them on the official login page. Your keys stay on your device.
+
+### 🔁 If it freezes — Continue prompt
+
+Wait 2 minutes. Still stuck? Close it, open it again, type `claude`, and paste:
+
+```
+Continue my setup from the AI Software Factory README (github.com/francky180/franc-system-template). First check what is already installed (skills count, agents, BRAIN, settings, MCPs) and SKIP anything finished. Then do every remaining step. Run ONE command at a time, no parallel background jobs, short timeouts. Keep going if a step fails, and give me the one-line fix at the end.
+```
+
+### 🔌 Connect Tools prompt
+
+```
+Connect my MCP tools. One at a time, never print a key or password. 1) Run claude mcp list and show what is connected. 2) For tools that use an API key I give you, add them with claude mcp add and keep the key out of the chat. 3) For tools that use a browser login, start it and give me ONE link at a time; I tap it, press Allow and say done, then you do the next. 4) Never type my passwords. 5) Finish with claude mcp list showing each tool as connected or failed.
+```
+
+### ⬆️ Stay updated — Update prompt (run any time)
+
+```
+Update my AI Software Factory. 1) claude update. 2) cd ~/franc-system-template && git pull. 3) bash ai-tools/install-all.sh (it only adds, never deletes). 4) Show me what is new: version, skill count, agents. One command at a time.
+```
+
+### 🛠 "Auto-update failed · Run claude doctor"
+
+Run the official installer again for your device, then check:
+
+- **Windows (PowerShell):** `irm https://claude.ai/install.ps1 | iex` then `claude doctor`
+- **Mac / Linux:** `curl -fsSL https://claude.ai/install.sh | bash` then `claude doctor`
+- **Android (inside Claude):** `! curl -fsSL https://claude.ai/install.sh | bash` then close Termux, reopen, type `claude`
+
+It reinstalls over the old copy and keeps your login, skills and settings.
 
 ## What You Get When You Clone This Repo
 
