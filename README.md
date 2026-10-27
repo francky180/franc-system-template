@@ -459,3 +459,6 @@ After install, personalize your system:
 Free to use. The underlying tools are MIT licensed:
 - gstack: https://github.com/garrytan/gstack
 - Superpowers: https://github.com/nicholasgriffintn/superpowers
+
+## GPU studio server + overnight autonomy (added 2026-10-26)
+Run the heavy work (Blender, ComfyUI, voice, edits) on a Linux GPU box and let that server's own Claude Code finish and QC overnight while your PC is off. Setup + the night finisher / supervisor / shared-plan pattern: [`docs/GPU_STUDIO_SERVER_LINUX.md` §8](docs/GPU_STUDIO_SERVER_LINUX.md).
