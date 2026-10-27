@@ -70,3 +70,13 @@ blender -b scene.blend --python ~/work/gpu_cuda.py -o //out_### -F PNG -f 72
 
 ## 7. Laptop space
 `move_to_server.sh` copies folders to `~/archive/laptop-downloads/`, verifies file count + bytes, then deletes the laptop copy.
+
+## 8. Overnight pipeline (PC can be off) — added 2026-10-26
+The server finishes long batches by itself; the PC is only the command center.
+1. **GPU chain** (`~/work/films/real`): `real_jobs.py` (Blender frame -> Qwen-Image-Edit photoreal still -> HunyuanVideo i2v; `SHOTS=batch.json`, `WH=1280x720` for landscape) -> `overnight.sh` (ESRGAN x4 + RIFE x2 upscale -> reveal edits, build only) -> more chains. Each step writes a `*.status` file.
+2. **Server Claude Code** (`~/.local/bin/claude`, logged in once; not on the ssh PATH, so call it by full path):
+   - tmux `night` -> `night_watch.sh` wakes `claude -p` with `NIGHT_PLAN.md` every 10 min: QC each video on a contact sheet, fix or skip, send only clean ones to Telegram, ledger `sent.txt`, never post.
+   - tmux `super` -> `super_watch.sh` runs `claude -p` with `SERVER_SUPERVISOR_PROMPT.md` every 30 min: health check, crash recovery, keep the GPU busy, 2-hourly Telegram status.
+   - `SAME_PAGE.md` = the shared plan both server jobs and the PC Claude read first; every change adds a LOG line.
+3. **Rules that prevent the crashes we hit:** the GPU belongs to the AI queue, so Blender and TTS run CPU-only (`CUDA_VISIBLE_DEVICES=`) while it runs; a still only counts as done if its image exists, and a missing one skips the shot instead of crashing the queue; never `pkill -f` over ssh (it matches your own shell).
+4. Starting an unattended agent needs the owner's explicit go: Claude Code's auto mode blocks it otherwise, so the owner runs the `tmux new -d -s ...` line once.
